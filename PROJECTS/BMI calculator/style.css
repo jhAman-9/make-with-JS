@@ -1,0 +1,49 @@
+.container {
+    width : 575px;
+    height: 825px;
+
+    background-color: rgb(193, 203, 203);
+    padding: 30px;
+}
+
+#height,
+#weight {
+    width: 150px;
+    height: 30px;
+    background-color: grey;
+    margin-top: 30px;  
+}
+
+#Weight-Guide{
+    background-color: #6bb0bc;
+    padding: 10px;
+    color: rgb(21, 23, 23);
+    margin-top: 25px;
+}
+
+#results {
+    font-size: 35px;
+    margin-left: 90px;
+    margin-top: 20px;
+    color: rgb(79, 3, 3);
+}
+
+button{
+    width: 150px;
+    height: 35px;
+    margin-left: 90px;
+    margin-top: 25px;
+    background-color: #fff;
+    padding :  1px 30px;
+    border-radius : 8px;
+    color : 212121;
+    text-decoration: none;
+    border: 2px solid #212121;
+
+    font-size: 25px;
+}
+
+h1{
+    padding-left: 15px;
+    padding-top: 25px;
+}

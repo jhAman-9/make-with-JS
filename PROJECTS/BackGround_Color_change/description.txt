@@ -1,0 +1,1 @@
+-> find value from the input using "event" in js

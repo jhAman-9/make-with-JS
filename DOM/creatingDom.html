@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: aqua;">
+    
+</body>
+
+ <script>
+    // Creating Div and Performing The Manupulations on It...
+    const div = document.createElement('div')       // here we can create any things like any h tag,div,
+    console.log(div);                               // now div is empty
+    div.className = "main"                          // creating class into the div
+    div.id = Math.round(Math.random() * 10 + 1)     // giving the id
+    div.setAttribute("title", "generated title")    // adding Title
+    div.style.backgroundColor = "green"             // giving the div backGroundColor
+    div.style.padding = "12px"                      // adding The padding
+    const addText = document.createTextNode("Learning Js from HC \n")      // creating The Node
+    div.appendChild(addText)                        // appending the Node to the div
+    div.innerHTML
+    // <div class="main" id="3" title="generated title" style="background-color: green; padding: 12px;">Learning Js from HC</div>
+
+    document.body.appendChild(div)                   // atteching div to the Document
+ </script>
+
+</html>

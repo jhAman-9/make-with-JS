@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick = "alert('You have just Click RIVER')" ></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+        <button>Please Click Me</button>
+   </div>
+</body>
+<script>
+   
+    // attachEvent()
+    // jQuery - on
+
+     // type, toELement, defaultPrevented
+    // target, toElement, srcElement, currenttraget,
+    // clientX, clientY, screenX, screenY,
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // document.getElementById('owl').onclick = function(event){
+    //     console.log(event.type);            // click
+    //     console.log(event.target);
+    //     console.log(event.clientX, event.clientY);          // 175 550
+    //     alert("You Have just Click the OWL")
+    // }
+
+    document.getElementById('prayer').addEventListener ('click' , function() {
+        alert("You just Click the PRAYER")
+    })
+
+     // NOTE: With the help of eventlistner we can perform multiple work on it but not on other two ways...
+    const button = document.querySelector('button');
+    button.addEventListener('click', (e)=>{
+        button.innerHTML = "Hey, I was Clicked"
+        // console.log(e.Key);
+    })
+
+
+    //************************* EVENT BUBBLING *************************************
+    // BUBBLING
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log("Click Inside THE ul");
+    },false)                          // true = capturing mode (top -> Bottom) 
+
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log("OWL Clicked");
+        e.stopPropagation();        // helps to donot bubble the event and donot go to up
+    },false)                        // false = Bubbling (bottom -> Top)
+
+   // Prevent Event Listner
+   document.getElementById('google').addEventListener('click', (e)=>{{
+        e.preventDefault();             // here The event is going to Prevented and not going to do Work
+        console.log("Google was clicked");
+        e.stopPropagation();            // Here, We stop The bubbling ...
+   }}, false)
+    
+    
+</script>
+</html>

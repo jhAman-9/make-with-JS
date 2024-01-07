@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        .child {
+            background-color: rgb(236, 237, 238);
+            border: 2px solid black;
+            padding: 34 px;
+            margin: 34px;
+            cursor: pointer;
+        }
+        .childcontainer{
+            background-color: yellow;
+            border: 2px solid black;
+            padding: 34px;
+            margin: 34px;
+            cursor: pointer;
+        }
+        .container{
+            background-color: aqua;
+            border: 2px solid black;
+            padding: 34px;
+            margin: 34px;
+            cursor: pointer;
+        }
+        #timee{
+            border: 2px solid black;
+            background-color: rgb(235, 48, 204);
+            padding : 10px;
+            align-content: center;
+            display:flex;
+            height : 10vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+
+</head>
+<body>
+    <span id="timee"></span>
+
+    <div class="container">
+        <section class="childcontainer">
+            <div class="child">
+                I am a Child..
+            </div>
+        </section>
+    </div>
+
+    <button id="butt">I am ready to DoubleClick</button>
+
+    <script>
+
+        document.querySelector(".child").addEventListener("click", (event)=>{
+            // to stop event Bubbling to its parent use stopPropagation
+            event.stopPropagation();    // events stop for the child parents
+            alert("child was Clicked")
+        })
+
+        document.querySelector(".childcontainer").addEventListener("click",(event)=>{
+             // to stop event Bubbling to its parent use stopPropagation
+             event.stopPropagation();    // events stop for the childcontainer parents
+            alert("childcontainer was Clicked")
+        })
+
+        document.querySelector(".container").addEventListener("click",()=>{
+            alert("container was Clicked")
+        })
+
+
+
+        document.addEventListener("keydown", (e)=>{
+            console.log(e , e.key, e.keyCode);
+        })
+
+        document.querySelector('#butt').addEventListener("dblclick", ()=>{
+            butt.innerHTML = "Please click me slowly"
+        })
+
+
+        // Set Interval
+        setInterval(() =>{
+            let date = new Date
+            timee.innerHTML = date.toLocaleTimeString();
+        },1000);
+
+
+        // Function for the Changing the Color With the Time
+        function getRandomColor (){
+            let val1 = Math.ceil(0 + Math.random() * 255);
+            let val2 = Math.ceil(0 + Math.random() * 255);
+            let val3 = Math.ceil(0 + Math.random() * 255);
+            return `rgb(${val1}, ${val2}, ${val3})`
+        }
+
+        let setValue = setInterval(() =>{
+            document.querySelector(".container").style.background = getRandomColor();
+        },1000);
+
+        // The set Interval Returns that value and when we pass that value in clearInterval, the set Interval is going To stop..
+
+        // clearInterval(setValue);
+
+
+        // Here We have also something like setInterval but it has quality to run one time after the certain period of Time...
+        // ***** here the time backGround color will change only one time
+        setTimeout(()=>{
+            document.getElementById('timee').style.background = getRandomColor();
+        },1000)
+        // And clear the TimeOut use clearTimeout
+
+    </script>
+</body>
+</html>

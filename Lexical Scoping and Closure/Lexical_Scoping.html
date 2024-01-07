@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function outter (){
+        let username = "aman"
+        // INNER functions has acceess of outter function properties but outter function doesnot have
+        function innerOne (){
+            console.log(username);
+        }
+        function innerTwo(){
+            console.log(username);
+        }
+
+        innerOne();
+        innerTwo();
+    }
+    outter();
+
+    // Out function not accessable 
+    // console.log("Outter" , username);
+    
+</script>
+</html>

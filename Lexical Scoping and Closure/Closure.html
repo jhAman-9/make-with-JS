@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="red">red</button>
+
+</body>
+
+<Script>
+    // closure means not just returning function, returning the whole lexical scope 
+    function outter(){
+        const name = "Aman"
+        function inner(){
+            console.log(name);
+        }
+        return inner;
+    }
+    const myFunc = outter();
+    myFunc();
+</Script>
+
+<script>
+    // here use of lexical Scoping and Closure
+    function clickHandler(color){
+        function inner() {
+            document.body.style.backgroundColor = `${color}`
+        }
+        return inner
+    }
+
+    // onClick need a fucntion and that we pass as clickHandler
+    document.getElementById('orange').onclick = clickHandler('orange')
+    document.getElementById('red').onclick = clickHandler('red')
+</script>
+
+</html>
