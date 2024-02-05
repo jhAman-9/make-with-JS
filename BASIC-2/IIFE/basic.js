@@ -18,6 +18,6 @@
 ("Aman");           // calling the IIFE function
 
 // Named IIFE function
-(function chai (){
+(function aj (){
     console.log("Named IIFE Function")
 }) ();
